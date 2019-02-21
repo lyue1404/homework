@@ -23,7 +23,6 @@ Buffer.concat = function(args) {
 
 const b1 = Buffer.from('前');
 const b2 = Buffer.from('端');
-
 let career = Buffer.concat([b1,b2]);
 
 console.log('career',career.toString('utf8'));
