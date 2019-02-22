@@ -8,8 +8,10 @@ common.js
       c.使用runInthisContext执行对应字符串，即函数执行；
       d.函数运行，将各模块的this替换为{}。
 3.exports与module.exports
-http://javascript.ruanyifeng.com/nodejs/module.html
-var module = {exports:{id: 1,name: 'file'}};
-var exports = module.exports;
-exports = {};
-console.log(module.exports,exports);
+  1> 直接改变exports的值，不会影响module.exports；改变exports的属性值，module.export也会跟着更新对应的属性值。
+  note: 若module.exports为引用类型的值，通过赋值，exports得到的是指向module.exports数据堆中存放地址的指针，改变exports，只是让exports栈中的值不再为上个指针，所以不会影响module.exports的值。
+eg:
+module = {
+  exports: {}
+}
+var exports = module.exports
